@@ -1,0 +1,58 @@
+<%
+var title = '';
+
+if (is_category()) {
+  title = page.category;
+} else if (is_tag()) {
+  title = page.tag;
+} else if (is_month()) {
+  title = page.year + '/' + page.month;
+} else if (is_year()) {
+  title = page.year;
+} 
+
+%>
+
+<% if (type == 'index' || title == '') { %>
+   <!-- do nothing -->
+<% } else if (is_category()) {%>
+  <h1 class="archive-title"><%= __('category_title') %>: <%= title %></h1>
+  <hr class="post-list__divider" />
+<% } else if (is_tag()) { %>
+  <h1 class="archive-title"><%= __('tag_title') %>: <%= title %></h1>
+  <hr class="post-list__divider" />
+<% } else if (is_year() || is_mongth()) { %>
+  <h1 class="archive-title"><%= __('archive_title') %>: <%= title %></h1>
+  <hr class="post-list__divider" />
+<% } %>
+
+<div class="main-post-list">
+    <h1>文档</h1>
+    <ol class="post-list">
+    
+    <% page.posts.each(function(post, i){ %>
+    <li>
+
+      <h3 class="post-list__post-title post-title">
+        <a href="<%- config.root %><%- post.path %>" title="link to <%= post.title %>"><%= post.title %></a>
+      </h3>
+
+      <div class="post-list__meta">
+
+      </div>
+
+      <div class="excerpt">
+        <% if (post.description) { %>
+          <%- post.description %>
+        <% } else if (post.excerpt) { %>
+          <%- post.excerpt %>
+        <% } %>
+      </div>
+
+    </li>
+    <% }); %>
+  </ol>
+
+  <%- partial('pagination') %>
+
+</div>
