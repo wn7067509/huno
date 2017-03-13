@@ -6,7 +6,7 @@ Huno is a responsible theme for [Hexo](http://hexo.io/), and it is based on [Uno
 ## Install
 
 ```
-$ git clone git://github.com/someus/huno.git themes/huno
+$ git clone git://github.com/neurotoxinvx/huno.git themes/huno
 ```
 
 Huno performs well with Hexo 2.5.7.
