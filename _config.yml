@@ -1,7 +1,8 @@
 # Header
 menu:
   起步: /better-scroll/start
-  文档: /better-scroll/#documents
+#  文档: /better-scroll/#documents
+  文档: /better-scroll/document
   示例: /better-scroll/example
 
 # Site favicon
